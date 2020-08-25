@@ -1,10 +1,14 @@
 # omero-toolkit
 
-This toolkit includes Docker files and code designed to assist researchers to deposit their microscopy data into an OMERO server.
+This toolkit includes Docker files and software utilities designed to assist researchers to deposit their microscopy data into an OMERO server.
 
-# Docker Files (OMEROConnect)
+## Docker Files (OMEROConnect)
 
 The Docker files in the toolkit provide support for uploading to and querying OMERO servers, the Open Microscopy Environment image data repository platform.
+
+## Software Utilities
+
+Included with the toolkit are two main utilities for supporting (meta)data deposition and curation activities: the 'tag manager' and the 'batch upload' scripts.
 
 ## Toolkit Structure
 The toolkit is intended to be deployed as Docker containers. There are three container images: `omero_base`, `omero_uploader` and `omero_jupyter`. The Jupyter Docker container image inherits from the uploader image which in turn inherits from the base image.
