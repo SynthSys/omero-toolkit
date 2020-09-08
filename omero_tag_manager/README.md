@@ -5,25 +5,12 @@ This Python script uploads data to an OMERO server in batches
 
 # Description
 
-There are two command line tools packaged in the OMERO CLI Batch toolkit.
-The first tool is the 'uploader', which is for depositing data and metadata 
-into a target remote OMERO server instance. The second tool is the 'tag 
-manager', which is for automatically cleaning and rationalising tag 
+The 'tag manager' command line tool can be used for automatically cleaning and rationalising tag 
 annotations on a target remote OMERO server instance.
-
-## Uploader
-
-There are two versions of the CLI tool. The `src/omero_cli_batch/uploader.py`
-script is designed for running in a Python3 virtual environment where 
-[omero-py](https://pypi.org/project/omero-py/) 5.6.2 is installed. 
-The target OMERO server needs to be version 5.6 or higher for this script to 
-work. The `src/omero_cli_batch/uploader27.py` script is designed for running 
-in a Python2 virtual environment where 
-[python-omero](https://anaconda.org/bioconda/python-omero) 5.4.10 is installed.
 
 ## Tag Manager
 
-The tag manager - `src/omero_cli_batch/tag_manager.py` offers two main features:
+The tag manager - `src/tag_manager/tag_manager.py` offers two main features:
 
 1. An automated cleaning function which will query the specified OMERO server 
 database and find any tag annotations that share identical label text values 
@@ -65,83 +52,6 @@ $ conda install --file requirements_conda.txt
 # Pip (Python 3, omero-py 5.6.1)
 $ pip install -r requirements.txt
 ``` 
-
-## Uploader
-
-### Python 2 - python-omero 5.4.10
-
-For the **Python 2** version, here are the instructions:
-
-```shell script
-
-docker pull openmicroscopy/omero-server:5.4.10
-
-docker run -d --name postgres -e POSTGRES_PASSWORD=postgres postgres
-
-docker run -d --name omero-server_5.4.10 --link postgres:db
-    -e CONFIG_omero_db_user=postgres \
-    -e CONFIG_omero_db_pass=postgres \
-    -e CONFIG_omero_db_name=postgres \
-    -e ROOTPASS=omero-root-password \
-    -p 4063:4063 -p 4064:4064 \
-    -v '/home/user/omero_data:/var/test_data:ro'
-    -v '/home/user/code/omero-cli-batch:/opt/omero/server/omero-cli-batch:ro'
-    openmicroscopy/omero-server:5.4.10
-
-# need to install the OMERO libraries on the 5.4.10 server
-docker exec -uroot -it omero-server_5.4.10 /bin/bash
-yum install -y openssl-devel
-ln -s /usr/lib64/libssl.so.1.0.2k /usr/lib64/libssl.so.1.0.0
-ln -s /usr/lib64/libcrypto.so.1.0.2k /usr/lib64/libcrypto.so.1.0.0
-exit
-
-docker exec -it omero-server_5.4.10 /bin/bash
-cd ~
-#install Miniconda to /opt/omero/server/miniconda2
-wget https://repo.anaconda.com/miniconda/Miniconda2-latest-Linux-x86_64.sh
-chmod u+x Miniconda2-latest-Linux-x86_64.sh
-./Miniconda2-latest-Linux-x86_64.sh
-conda create -n omero python=2.7
-conda activate omero
-conda install -c bioconda python-omero=5.4.10
-
-# add omero jars to classpath
-ln -s /opt/omero/server/OMERO.server-5.4.10-ice36-b105/lib/ /opt/omero/server/miniconda2/envs/omero/lib/lib
-
-# run the uploader27 script
-/opt/omero/server/omero-cli-batch/src/omero_cli_batch/uploader27.py
-```
-
-### Python 3 - omero-py 5.6.1
-
-For the **Python 3** version, here are the instructions:
-
-```shell script
-docker pull openmicroscopy/omero-server:5.6.1
-
-docker run -d --name postgres -e POSTGRES_PASSWORD=postgres postgres
-
-docker run -d --name omero-server_5.6.1 --link postgres:db \
-    -e CONFIG_omero_db_user=postgres \
-    -e CONFIG_omero_db_pass=postgres \
-    -e CONFIG_omero_db_name=postgres \
-    -e ROOTPASS=omero-root-password \
-    -p 4063:4063 -p 4064:4064 \
-    -v '/home/user/omero_data:/var/test_data:ro' \
-    -v '/home/user/code/omero-cli-batch:/opt/omero/server/omero-cli-batch:ro' \
-    openmicroscopy/omero-server:5.6.1
-
-docker exec -it -uroot omero-server_5.6.1 /bin/bash
-source /opt/omero/server/venv3/bin/activate
-pip install backoff
-exit
-
-docker exec -it omero-server_5.6.1 /bin/bash
-source /opt/omero/server/venv3/bin/activate
-
-# run the uploader script
-python3 /opt/omero/server/omero-cli-batch/src/omero_cli_batch/uploader.py
-```
 
 ## Tag Manager
 
