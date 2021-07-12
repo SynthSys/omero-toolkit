@@ -55,7 +55,7 @@ Testing your script
 Legal
 -----
 
-See [LICENSE](LICENSE)
+See [LICENSE](OMERO_EXPORT_LICENSE)
 
 
 # About #
