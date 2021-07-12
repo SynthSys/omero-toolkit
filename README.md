@@ -1,3 +1,11 @@
+******************************************************************************
+**Updated 12/07/21: This repository is the current code base for the following
+projects, which have been merged into this project:**
+* **[omero-cli-batch](https://github.com/SynthSys/omero-cli-batch)**
+* **[SynthSys/omero-user-scripts](https://github.com/SynthSys/omero-user-scripts)**
+**These repositories have been superseded by this one and are no longer updated**
+******************************************************************************
+
 # omero-toolkit
 
 This toolkit includes Docker files and software utilities designed to assist researchers to deposit their microscopy data into an OMERO server.
