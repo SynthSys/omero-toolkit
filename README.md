@@ -3,6 +3,7 @@
 projects, which have been merged into this project:**
 * **[omero-cli-batch](https://github.com/SynthSys/omero-cli-batch)**
 * **[SynthSys/omero-user-scripts](https://github.com/SynthSys/omero-user-scripts)**
+
 **These repositories have been superseded by this one and are no longer updated**
 ******************************************************************************
 
