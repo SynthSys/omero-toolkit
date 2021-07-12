@@ -1,3 +1,7 @@
+******************************************************************************
+**Updated 12/07/21: This repository is manually synchronised from the main [OMERO 
+Connect repository](https://github.com/SynthSys/OMEROConnect)**
+******************************************************************************
 
 # OMEROConnect
 
