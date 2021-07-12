@@ -9,6 +9,9 @@ querying OMERO servers, the Open Microscopy Environment image data
 repository platform. The Docker files are duplicated from the original
 OMEROConnect repository.
 
+## pyOmeroUpload
+A project providing Python code for uploading data and metadata from a local file structure into an OMERO server instance.
+
 ## Software Utilities
 
 Included with the toolkit are two main utilities for supporting (meta)data deposition and curation activities: the 'tag manager' and the 'batch upload' scripts.
