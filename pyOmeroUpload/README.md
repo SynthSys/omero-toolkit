@@ -1,3 +1,7 @@
+******************************************************************************
+**Updated 12/07/21: This repository is manually synchronised from the main [pyOmeroUpload
+repository](https://github.com/SynthSys/pyOmeroUpload)**
+******************************************************************************
 
 # pyOmeroUpload
 A project providing Python code for uploading data and metadata from a local file structure into an OMERO server instance.
