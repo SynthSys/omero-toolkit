@@ -11,7 +11,7 @@ from omero.gateway import BlitzGateway
 from omero.util.script_utils import readFlimImageFile
 
 # ssl._create_default_https_context = ssl._create_unverified_context
-ssl.SSLContext.verify_mode = ssl.VerifyMode.CERT_NONE
+# ssl.SSLContext.verify_mode = ssl.VerifyMode.CERT_NONE
 
 # conn = connection('idr.openmicroscopy.org')
 conn = connection('publicomero.bio.ed.ac.uk')
